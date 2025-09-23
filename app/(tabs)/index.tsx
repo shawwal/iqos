@@ -1,31 +1,45 @@
-import { StyleSheet } from 'react-native';
+import Header from '@/components/Header';
+import HeroSection from '@/components/HeroSection';
+import PointsCard from '@/components/PointsCard';
+import ProductsSection from '@/components/ProductsSection';
+import PromosSection from '@/components/PromosSection';
+import { Colors } from '@/constants/Colors';
+import { useAppStore } from '@/store/useAppStore';
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+export default function HomeScreen() {
+  const { theme } = useAppStore();
+  const colors = Colors[theme || 'light'];
 
-export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
+        <StatusBar style={theme === 'dark' ? 'light' : 'dark'} />
+        
+        <ScrollView 
+          style={styles.scrollView}
+          showsVerticalScrollIndicator={false}
+          bounces={false}
+        >
+          <Header />
+          <HeroSection />
+          <PointsCard />
+          <PromosSection />
+          <ProductsSection />
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  scrollView: {
+    flex: 1,
   },
 });
