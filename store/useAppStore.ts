@@ -36,7 +36,7 @@ const mockProducts: Product[] = [
 export const useAppStore = create<AppState>((set) => ({
   language: 'en',
   user: { 
-    name: 'MOCHAMMAD HUSNI THA', 
+    name: 'Muhammad Syawaludin', 
     points: 2450 
   },
   theme: 'light',

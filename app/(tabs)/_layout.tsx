@@ -11,7 +11,7 @@ function FloatingButton() {
     <View style={styles.floatingButtonContainer}>
       <TouchableOpacity style={styles.floatingButton}>
         <View style={styles.aiIcon}>
-          <Ionicons name="chatbubble-ellipses" size={24} color="#FFFFFF" />
+          <Ionicons name="scan-sharp" size={33} color="#FFFFFF" />
         </View>
       </TouchableOpacity>
     </View>
@@ -97,7 +97,7 @@ export default function TabLayout() {
 
 const styles = StyleSheet.create({
   floatingTab: {
-    top: -20,
+    top: -5,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -107,9 +107,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   floatingButton: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
     backgroundColor: '#20B2AA',
     justifyContent: 'center',
     alignItems: 'center',

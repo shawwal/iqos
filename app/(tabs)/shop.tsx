@@ -1,19 +1,18 @@
+import { Ionicons } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  Image,
-  FlatList,
-  TextInput,
   Dimensions,
+  FlatList,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { StatusBar } from 'expo-status-bar';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Ionicons } from '@expo/vector-icons';
 import { useAppStore } from '../../store/useAppStore';
 
 const { width } = Dimensions.get('window');
@@ -277,6 +276,9 @@ const styles = StyleSheet.create({
   },
   categoriesContainer: {
     marginBottom: 16,
+    // height: 55,
+    // borderWidth: 1,
+    // borderColor: 'red',
   },
   categoriesContent: {
     paddingHorizontal: 20,
