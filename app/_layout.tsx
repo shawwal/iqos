@@ -49,7 +49,7 @@ export default function RootLayout() {
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
-    const [modalVisible, setModalVisible] = useState(true);
+    const [modalVisible, setModalVisible] = useState(false);
   // Check for updates when the component mounts.
   useEffect(() => {
     async function checkForUpdates() {
@@ -82,6 +82,7 @@ function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="scanner" options={{ headerTitle: 'Scanner' }} />
       </Stack>
        <UpdateModal
         visible={modalVisible}

@@ -2,14 +2,15 @@ import { Colors } from '@/constants/Colors';
 import { useAppStore } from '@/store/useAppStore';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
-import { Tabs } from 'expo-router';
+import { Tabs, useRouter } from 'expo-router';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 function FloatingButton() {
+  const router = useRouter();
   return (
     <View style={styles.floatingButtonContainer}>
-      <TouchableOpacity style={styles.floatingButton}>
+      <TouchableOpacity style={styles.floatingButton} onPress={() => router.push('/scanner')}>
         <View style={styles.aiIcon}>
           <Ionicons name="scan-sharp" size={33} color="#FFFFFF" />
         </View>
@@ -21,6 +22,7 @@ function FloatingButton() {
 export default function TabLayout() {
   const { theme } = useAppStore();
   const colors = Colors[theme];
+
   
   return (
     <Tabs
@@ -69,7 +71,7 @@ export default function TabLayout() {
           title: '',
           tabBarIcon: () => <FloatingButton />,
           tabBarButton: (props) => (
-            <TouchableOpacity {...props} style={styles.floatingTab} />
+            <TouchableOpacity  {...props} style={styles.floatingTab} />
           ),
         }}
       />
