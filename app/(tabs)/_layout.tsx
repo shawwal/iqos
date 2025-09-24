@@ -66,7 +66,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="ai"
+        name="scanner"
         options={{
           title: '',
           tabBarIcon: () => <FloatingButton />,
