@@ -1,4 +1,4 @@
-const tintColorLight = '#2f95dc';
+export const tintColorLight = '#2f95dc';
 const tintColorDark = '#fff';
 
 // export default {
@@ -30,7 +30,8 @@ export const Colors = {
     text: '#1A1A1A',
     textSecondary: '#666666',
     border: '#E5E5E5',
-    shadow: 'rgba(0, 0, 0, 0.1)'
+    shadow: 'rgba(0, 0, 0, 0.1)',
+    grayBackground: 'rgb(242,242,247)'
   },
   dark: {
     tint: tintColorDark,
@@ -43,7 +44,8 @@ export const Colors = {
     text: '#FFFFFF',
     textSecondary: '#CCCCCC',
     border: '#333333',
-    shadow: 'rgba(255, 255, 255, 0.1)'
+    shadow: 'rgba(255, 255, 255, 0.1)',
+    grayBackground: 'rgb(28,28,30)',
   }
 };
 
