@@ -2,26 +2,26 @@ import { Ionicons } from '@expo/vector-icons';
 import { Camera, CameraView } from 'expo-camera';
 import * as Clipboard from 'expo-clipboard';
 import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Animated, Easing, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ScanScreen() {
-  const [hasPermission, setHasPermission] = useState(null);
-  const [scanned, setScanned] = useState(false);
-  const [modalVisible, setModalVisible] = useState(false);
-  const [scannedData, setScannedData] = useState({ type: '', data: '' });
-  const [animation] = useState(new Animated.Value(0));
-  const [copyButtonText, setCopyButtonText] = useState('Copy to Clipboard');
+  const [hasPermission, setHasPermission] = React.useState(null);
+  const [scanned, setScanned] = React.useState(false);
+  const [modalVisible, setModalVisible] = React.useState(false);
+  const [scannedData, setScannedData] = React.useState({ type: '', data: '' });
+  const [animation] = React.useState(new Animated.Value(0));
+  const [copyButtonText, setCopyButtonText] = React.useState('Copy to Clipboard');
 
-  useEffect(() => {
+  React.useEffect(() => {
     (async () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
       setHasPermission(status === 'granted');
     })();
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Starts the scanning line animation
     const startAnimation = () => {
       animation.setValue(0);
@@ -76,10 +76,11 @@ export default function ScanScreen() {
     };
 
     return (
-      <CameraView
-        onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
-        style={StyleSheet.absoluteFillObject}
-      >
+      <View style={{ flex: 1 }}>
+        <CameraView
+          onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
+          style={StyleSheet.absoluteFillObject}
+        />
         <View style={styles.overlay}>
           <View style={styles.header}>
             <Text style={styles.headerTitle}>Scan Code</Text>
@@ -99,7 +100,7 @@ export default function ScanScreen() {
             <Text style={styles.footerText}>Point your camera at a QR or Barcode</Text>
           </View>
         </View>
-      </CameraView>
+      </View>
     );
   };
   
