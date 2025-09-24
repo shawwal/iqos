@@ -17,7 +17,9 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.shawwals.iqos",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSCameraUsageDescription": "This app needs access to your camera to scan QR codes and verify products.",
+        "NSMicrophoneUsageDescription": "This app needs access to your microphone when recording videos for support tickets."
       }
     },
     "android": {
@@ -25,11 +27,9 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "package": "com.shawwals.iqos",
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false,
-      "permissions": [
-        "android.permission.CAMERA"
-      ]
+      "predictiveBackGestureEnabled": false
     },
     "web": {
       "bundler": "metro",
@@ -39,7 +39,22 @@
     "plugins": [
       "expo-router",
       "expo-font",
-      "expo-web-browser"
+      "expo-web-browser",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "This app needs access to your camera to scan QR codes and verify products.",
+          "microphonePermission":  "This app needs access to your microphone when recording videos for support tickets.",
+          "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#ffffff"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
